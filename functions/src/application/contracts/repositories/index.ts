@@ -1,3 +1,5 @@
 export * from './hashContract'
 export * from './authContract'
+export * from './aiApiContract'
 export * from './firebaseContract'
+export * from './searchApiContract'

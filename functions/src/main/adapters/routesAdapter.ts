@@ -8,35 +8,35 @@ export type Endpoint = {
 }
 
 export function defineEndpoint(endpoint: Endpoint): HttpsFunction {
-    return https.onRequest(
-        async (req: Request, res: Response) => {
-            cors(req, res, async () => {
-                let response: HttpResponse
-                const request = req.method === 'GET' ? req.query : req.body
+  return https.onRequest(
+    async (req: Request, res: Response) => {
+      cors(req, res, async () => {
+        let response: HttpResponse
+        const request = req.method === 'GET' ? req.query : req.body
 
-                switch (req.method) {
-                case 'POST':
-                    response = await endpoint.post(request)
-                    break
-                case 'GET':
-                    response = await endpoint.get(request)
-                    break
-                case 'PUT':
-                    response = await endpoint.put(request)
-                    break
-                case 'DELETE':
-                    response = await endpoint.delete(request)
-                    break
-                default:
-                    response = methodNotAllowed()
-                    break
-                }
-
-                const isValid = !!(response.statusCode >= 200 && response.statusCode <= 299)
-                const data = (isValid) ? response.data : { error: response.data.message }
-
-                res.status(response.statusCode).send(data)
-            })
+        switch (req.method) {
+        case 'POST':
+          response = await endpoint.post(request)
+          break
+        case 'GET':
+          response = await endpoint.get(request)
+          break
+        case 'PUT':
+          response = await endpoint.put(request)
+          break
+        case 'DELETE':
+          response = await endpoint.delete(request)
+          break
+        default:
+          response = methodNotAllowed()
+          break
         }
-    )
+
+        const isValid = !!(response.statusCode >= 200 && response.statusCode <= 299)
+        const data = (isValid) ? response.data : { error: response.data.message }
+
+        res.status(response.statusCode).send(data)
+      })
+    }
+  )
 }
