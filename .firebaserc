@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "stima-2734b",
+    "dev": "stima-dev"
+  },
+  "targets": {},
+  "etags": {}
+}

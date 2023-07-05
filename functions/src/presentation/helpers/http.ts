@@ -1,0 +1,57 @@
+import { MethodNotAllowedError, UnknownError } from '../../presentation/errors'
+
+export type HttpMethods = 'post' | 'get' | 'put' | 'delete'
+
+export type HttpResponse<T = any> = {
+  statusCode: number
+  data: T
+}
+
+export function success<T = any>(data: T): HttpResponse<T> {
+    return {
+        statusCode: 200,
+        data,
+    }
+}
+
+export function badRequest(error: Error): HttpResponse<Error> {
+    return {
+        statusCode: 400,
+        data: error,
+    }
+}
+
+export function unathorized(error: Error): HttpResponse<Error> {
+    return {
+        statusCode: 401,
+        data: error,
+    }
+}
+
+export function notFound(error: Error): HttpResponse<Error> {
+    return {
+        statusCode: 404,
+        data: error,
+    }
+}
+
+export function invalidParams(error: Error): HttpResponse<Error> {
+    return {
+        statusCode: 422,
+        data: error,
+    }
+}
+
+export function methodNotAllowed(): HttpResponse<Error> {
+    return {
+        statusCode: 405,
+        data: new MethodNotAllowedError(),
+    }
+}
+
+export function serverError(): HttpResponse<UnknownError> {
+    return {
+        statusCode: 500,
+        data: new UnknownError(),
+    }
+}
