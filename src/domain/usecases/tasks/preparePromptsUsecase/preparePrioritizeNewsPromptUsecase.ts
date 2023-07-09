@@ -2,7 +2,7 @@ export type PreparePrioritizeNewsPromptUsecase = (params: PreparePrioritizeNewsP
 
 export namespace PreparePrioritizeNewsPromptUsecase {
   export type Params = {
-    summarizedNews: string
+    news: string
   }
 
   export type Response = string

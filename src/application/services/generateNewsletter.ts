@@ -10,7 +10,7 @@ export class GenerateNewsletterService implements GenerateNewsletterUsecase {
 
   ) { }
 
-  async perform({ title, theme, days }: GenerateNewsletterUsecase.Params): Promise<GenerateNewsletterUsecase.Response> {
+  async perform({ greet, author, theme, days = 30 }: GenerateNewsletterUsecase.Params): Promise<GenerateNewsletterUsecase.Response> {
     const news = await this.searchApiRepository.fetch({ query: theme, days })
     if (news instanceof Error) return news
 
@@ -18,12 +18,11 @@ export class GenerateNewsletterService implements GenerateNewsletterUsecase {
     const summarizedNews = await this.aiApiRepository.fetch(summaryPrompt)
     if (summarizedNews instanceof Error) return summarizedNews
 
-    const prioritizePrompt = await this.preprarePromptsService.prioritizeNews({ summarizedNews })
+    const prioritizePrompt = await this.preprarePromptsService.prioritizeNews({ news: summarizedNews })
     const prioritizedNews = await this.aiApiRepository.fetch(prioritizePrompt)
     if (prioritizedNews instanceof Error) return prioritizedNews
 
-
-    const newsletterPrompt = await this.preprarePromptsService.newsletter({ news: prioritizedNews, theme, title })
+    const newsletterPrompt = await this.preprarePromptsService.newsletter({ news: prioritizedNews, theme, greet, author })
     const newsletter = await this.aiApiRepository.fetch(newsletterPrompt)
 
     return newsletter

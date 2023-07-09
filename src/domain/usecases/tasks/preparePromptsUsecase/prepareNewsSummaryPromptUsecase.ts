@@ -2,7 +2,11 @@ export type PrepareNewsSummaryPromptUsecase = (params: PrepareNewsSummaryPromptU
 
 export namespace PrepareNewsSummaryPromptUsecase {
   export type Params = {
-    news: string
+    news: Array<{
+      title: string
+      snippet: string
+      link: string
+    }>
   }
 
   export type Response = string

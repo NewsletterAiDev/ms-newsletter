@@ -6,9 +6,10 @@ export interface GenerateNewsletterUsecase {
 
 export namespace GenerateNewsletterUsecase {
   export type Params = {
-    title: string
+    author: string
+    greet: string
     theme: string
-    days: number
+    days?: number
   }
 
   export type Response = Newsletter | Error

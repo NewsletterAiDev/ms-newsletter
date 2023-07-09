@@ -1,2 +1,2 @@
-export * from './prompts'
+export * from './preparePromptsUsecase'
 export * from './handleErrorUsecase'

@@ -4,7 +4,8 @@ export namespace PrepareNewsletterPromptUsecase {
   export type Params = {
     news: string
     theme: string
-    title: string
+    greet: string
+    author: string
   }
 
   export type Response = string

@@ -1,4 +1,8 @@
-// import { defineEndpoint } from '../adapters/routesAdapter'
-// import { userEndpoint } from '../../presentation/controllers'
+import { defineEndpoint } from '../adapters/routesAdapter'
+import { generateNewsletterController } from '../../presentation/controllers'
 
-// export const user = defineEndpoint(userEndpoint)
+
+export const newsletter = defineEndpoint({
+  post: generateNewsletterController,
+})
+

@@ -1,3 +1,5 @@
 export * from './hashRepository'
 export * from './authRepository'
+export * from './aiApiRepository'
 export * from './firebaseRepository'
+export * from './searchApiRepository'

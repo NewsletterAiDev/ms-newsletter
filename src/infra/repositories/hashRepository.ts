@@ -1,7 +1,6 @@
 import { HashContract } from '../../application/contracts'
 import { createHash } from 'crypto'
 
-
 export class HashRepository implements HashContract {
   constructor() { }
 

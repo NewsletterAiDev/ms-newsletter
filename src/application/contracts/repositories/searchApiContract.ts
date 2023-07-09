@@ -9,6 +9,15 @@ export namespace SearchApiContract {
             days: number
         }
 
-        export type Response = string | Error
+        export type Response = Array<any> | Error
+    }
+
+    export type SearchParams = {
+        q: string,
+        cx: string,
+        key: string,
+        dateRestrict: string,
+        sort: string,
+        lr: string
     }
 }

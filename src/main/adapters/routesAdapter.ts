@@ -4,7 +4,7 @@ import { HttpResponse, HttpMethods, methodNotAllowed } from '../../presentation/
 import { https, Request, Response, HttpsFunction } from 'firebase-functions'
 
 export type Endpoint = {
-    [key in HttpMethods]: (request: any) => Promise<HttpResponse>
+    [key in HttpMethods]?: (request: any) => Promise<HttpResponse>
 }
 
 export function defineEndpoint(endpoint: Endpoint): HttpsFunction {
@@ -16,16 +16,16 @@ export function defineEndpoint(endpoint: Endpoint): HttpsFunction {
 
         switch (req.method) {
         case 'POST':
-          response = await endpoint.post(request)
+          response = endpoint?.post ? await endpoint.post(request) : methodNotAllowed()
           break
         case 'GET':
-          response = await endpoint.get(request)
+          response = endpoint?.get ? await endpoint.get(request) : methodNotAllowed()
           break
         case 'PUT':
-          response = await endpoint.put(request)
+          response = endpoint?.put ? await endpoint.put(request) : methodNotAllowed()
           break
         case 'DELETE':
-          response = await endpoint.delete(request)
+          response = endpoint?.delete ? await endpoint.delete(request) : methodNotAllowed()
           break
         default:
           response = methodNotAllowed()
