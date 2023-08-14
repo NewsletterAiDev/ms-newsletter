@@ -1,17 +1,21 @@
 import { FirebaseContract } from '../../application/contracts'
 
-import { firestore, auth, storage } from 'firebase-admin'
+import * as firebase from 'firebase-admin'
 
 export class FirebaseRepository implements FirebaseContract {
-  public db: firestore.Firestore
-  public auth: auth.Auth
-  public storage: storage.Storage
+  private app: firebase.app.App
+  public db: firebase.firestore.Firestore
+  public auth: firebase.auth.Auth
+  public storage: firebase.storage.Storage
 
-  constructor() {
-    this.db = firestore()
-    this.auth = auth()
-    this.storage = storage()
+  constructor(
+    private readonly firebaseAdminSdk: any
+  ) {
+    this.app = firebase.apps.length ? firebase.app() : firebase.initializeApp({ credential: firebase.credential.cert(this.firebaseAdminSdk) })
+    this.db = this.app.firestore()
+    this.auth = this.app.auth()
+    this.storage = this.app.storage()
+
+    !(firebase.apps.length) && this.db.settings({ ignoreUndefinedProperties: true })
   }
 }
-
-

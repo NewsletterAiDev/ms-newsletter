@@ -7,6 +7,6 @@ export async function handleErrorService({ err }: HandleErrorUsecase.Params): Pr
 
   if (error) return error
 
-  console.log(err)
+  console.error(err)
   return new UnknownError()
 }

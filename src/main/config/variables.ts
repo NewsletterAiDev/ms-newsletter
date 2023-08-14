@@ -1,11 +1,15 @@
 export const variables = {
-  firebaseApiKey: process.env.FIREBASE_API_KEY ?? 'undefined',
-  firebaseAuthDomain: process.env.FIREBASE_AUTH_DOMAIN ?? 'undefined',
-  firebaseProjectId: process.env.FIREBASE_PROJECT_ID ?? 'undefined',
-  firebaseStorageBucket: process.env.FIREBASE_STORAGE_BUCKET ?? 'undefined',
-  firebaseMessagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID ?? 'undefined',
-  firebaseAppId: process.env.FIREBASE_APP_ID ?? 'undefined',
-  firebaseMeasurementId: process.env.FIREBASE_MEASUREMENT_ID ?? 'undefined',
+  firebaseType: process.env.CONFIG_FIREBASE_TYPE ?? 'undefined',
+  firebaseProjectId: process.env.CONFIG_FIREBASE_PROJECT_ID ?? 'undefined',
+  firebasePrivateKeyId: process.env.CONFIG_FIREBASE_PRIVATE_KEY_ID ?? 'undefined',
+  firebasePrivateKey: process.env.CONFIG_FIREBASE_PRIVATE_KEY ?? 'undefined',
+  firebaseClientEmail: process.env.CONFIG_FIREBASE_CLIENT_EMAIL ?? 'undefined',
+  firebaseClientId: process.env.CONFIG_FIREBASE_CLIENT_ID ?? 'undefined',
+  firebaseAuthUri: process.env.CONFIG_FIREBASE_AUTH_URI ?? 'undefined',
+  firebaseTokenUri: process.env.CONFIG_FIREBASE_TOKEN_URI ?? 'undefined',
+  firebaseAuthProvider: process.env.CONFIG_FIREBASE_AUTH_PROVIDER ?? 'undefined',
+  firebaseClientCert: process.env.CONFIG_FIREBASE_CLIENT_CERT ?? 'undefined',
+  firebaseUniverseDomain: process.env.CONFIG_FIREBASE_UNIVERSE_DOMAIN ?? 'undefined',
   googleSearchCx: process.env.GOOGLE_SEARCH_CX ?? 'undefined',
   googleSearchApiKey: process.env.GOOGLE_SEARCH_API_KEY ?? 'undefined',
   openAIApiKey: process.env.OPENAI_API_KEY ?? 'undefined',
@@ -21,6 +25,6 @@ export const variables = {
 
 export const testVariables = (): boolean => {
   return Object.values(variables).every((value) => {
-    return (value !== 'undefined')
+    return (value !== 'undefined' && value !== '')
   })
 }

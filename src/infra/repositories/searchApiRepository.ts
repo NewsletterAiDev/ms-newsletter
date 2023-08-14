@@ -30,6 +30,7 @@ export class SearchApiRepository implements SearchApiContract {
 
       return response.data.items
     } catch (err: any) {
+      console.log(err)
       return await handleErrorService(err.message)
     }
   }

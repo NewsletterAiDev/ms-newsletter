@@ -3,14 +3,10 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "lint": "eslint --ext .js,.ts .",
     "lintstaged": "eslint --ext .js,.ts . --fix",
-    "dev": "ts-node -r dotenv/config src/index.ts",
-    "test": "ts-node -r dotenv/config src/main/runMock.ts",
-    "start": "node -r dotenv/config lib/index.js",
-    "shell": "npm run start && npm run build && firebase functions:shell",
-    "serve": "npm run start && npm run build && nodemon --watch functions --exec 'firebase emulators:start'",
-    "deploy": "npm run start && firebase use stima-2734b && firebase deploy --only functions",
+    "dev": "ts-node -r dotenv/config src/main/runMock.ts",
+    "serve": "npm run build && nodemon --watch functions --exec 'firebase emulators:start'",
+    "deploy": "firebase deploy --only functions",
     "kill": "npx kill-port 4400, 4000, 4500, 9199, 5000, 9099, 8080"
   },
   "engines": {

@@ -1,17 +1,20 @@
+import { firebaseAdminSdk } from '../../config'
 import { FirebaseRepository } from '../../../infra/repositories'
 
 export class FirebaseHelperFactory {
-  private static instance: FirebaseHelperFactory
+    private static instance: FirebaseHelperFactory
 
-  public static getInstance(): FirebaseHelperFactory {
-    if (!this.instance) {
-      this.instance = new FirebaseHelperFactory()
+    public static getInstance(): FirebaseHelperFactory {
+        if (!this.instance) {
+            this.instance = new FirebaseHelperFactory()
+        }
+
+        return this.instance
     }
 
-    return this.instance
-  }
-
-  public make(): FirebaseRepository {
-    return new FirebaseRepository()
-  }
+    public make(): FirebaseRepository {
+        return new FirebaseRepository(
+            firebaseAdminSdk
+        )
+    }
 }
