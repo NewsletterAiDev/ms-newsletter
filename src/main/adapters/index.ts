@@ -1,1 +1,1 @@
-export * from './routesAdapter'
+export * from './httpServiceAdapter'

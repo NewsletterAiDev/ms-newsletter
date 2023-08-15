@@ -24,7 +24,7 @@ export async function newsletterPrompt({ news, theme, greet, author }: PrepareNe
     
     <strong>${greet}</strong><br><br>
     🤯 Estas são as notícias mais recentes e relevantes sobre <<THEME>>:<br>
-    <br>
+    <br>n 
     <strong>1️⃣ [TÍTULO DA NOTÍCIA]</strong><br>
     [Descrição da notícia]<br>
     <strong><a href="URL">domain</a></strong><br>

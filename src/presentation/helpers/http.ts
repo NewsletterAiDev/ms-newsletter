@@ -7,6 +7,12 @@ export type HttpResponse<T = any> = {
   data: T
 }
 
+export type Routes = {
+  path: string
+  method: HttpMethods
+  handler: (request: any) => Promise<HttpResponse>
+}
+
 export function success<T = any>(data: T): HttpResponse<T> {
   return {
     statusCode: 200,
@@ -18,6 +24,13 @@ export function badRequest(error: Error): HttpResponse<Error> {
   return {
     statusCode: 400,
     data: error,
+  }
+}
+
+export function undefinedRoute(): HttpResponse<Error> {
+  return {
+    statusCode: 404,
+    data: new Error('Route not found'),
   }
 }
 

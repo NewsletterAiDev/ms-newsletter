@@ -37,7 +37,6 @@ export class AiApiRepository implements AiApiContract {
 
       return completion.data.choices[0].message?.content ?? ''
     } catch (err: any) {
-      console.log(err)
       return await handleErrorService(err.response.statusText ?? err.message)
     }
   }
