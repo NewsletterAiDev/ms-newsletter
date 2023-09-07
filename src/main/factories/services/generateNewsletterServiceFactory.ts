@@ -1,5 +1,10 @@
+import {
+  PrepareNewsSummaryPromptServiceFactory,
+  PrepareNewsletterPromptServiceFactory,
+  PreparePrioritizeNewsPromptServiceFactory,
+} from './tasks'
+import { GenerateNewsletterService } from '../../../application/services'
 import { AiApiRepositoryFactory, SearchApiRepositoryFactory } from '../repositories'
-import { GenerateNewsletterService, preparePromptsService } from '../../../application/services'
 
 export class GenerateNewsletterServiceFactory {
   private static instance: GenerateNewsletterServiceFactory
@@ -16,7 +21,11 @@ export class GenerateNewsletterServiceFactory {
     return new GenerateNewsletterService(
       AiApiRepositoryFactory.getInstance().make(),
       SearchApiRepositoryFactory.getInstance().make(),
-      preparePromptsService
+      {
+        newsSummary: PrepareNewsSummaryPromptServiceFactory.getInstance().make(),
+        newsletter: PrepareNewsletterPromptServiceFactory.getInstance().make(),
+        prioritizeNews: PreparePrioritizeNewsPromptServiceFactory.getInstance().make(),
+      }
     )
   }
 }

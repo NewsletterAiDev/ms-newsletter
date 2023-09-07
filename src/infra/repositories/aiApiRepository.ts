@@ -21,7 +21,7 @@ export class AiApiRepository implements AiApiContract {
     this.openAi = new OpenAIApi(configuration)
   }
 
-  async fetch(prompt: string): Promise<string | Error> {
+  async inputPrompt(prompt: string): Promise<string | Error> {
     try {
       if (!this.openAi) this.initialize()
 
@@ -37,7 +37,7 @@ export class AiApiRepository implements AiApiContract {
 
       return completion.data.choices[0].message?.content ?? ''
     } catch (err: any) {
-      return await handleErrorService(err.response.statusText ?? err.message)
+      return await handleErrorService(err)
     }
   }
 }

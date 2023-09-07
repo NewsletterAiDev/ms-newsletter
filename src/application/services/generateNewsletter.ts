@@ -1,29 +1,41 @@
+import {
+  PrepareNewsSummaryPromptUsecase,
+  PrepareNewsletterPromptUsecase,
+  PreparePrioritizeNewsPromptUsecase,
+} from '../../domain/usecases/tasks'
 import { AiApiContract, SearchApiContract } from '../contracts'
 import { GenerateNewsletterUsecase } from '../../domain/usecases'
-import { PreprarePromptsUsecase } from '../../domain/usecases/tasks'
 
 export class GenerateNewsletterService implements GenerateNewsletterUsecase {
   constructor(
     private readonly aiApiRepository: AiApiContract,
     private readonly searchApiRepository: SearchApiContract,
-    private readonly preprarePromptsService: PreprarePromptsUsecase
-
+    private readonly preprarePromptsService: {
+      newsSummary: PrepareNewsSummaryPromptUsecase
+      prioritizeNews: PreparePrioritizeNewsPromptUsecase
+      newsletter: PrepareNewsletterPromptUsecase
+    }
   ) { }
 
-  async perform({ greet, author, theme, days = 30 }: GenerateNewsletterUsecase.Params): Promise<GenerateNewsletterUsecase.Response> {
+  async perform(params: GenerateNewsletterUsecase.Params): Promise<GenerateNewsletterUsecase.Response> {
+    const { theme, days = 30 } = params
+
     const news = await this.searchApiRepository.fetch({ query: theme, days })
     if (news instanceof Error) return news
 
-    const summaryPrompt = await this.preprarePromptsService.newsSummary({ news })
-    const summarizedNews = await this.aiApiRepository.fetch(summaryPrompt)
+    const summaryPrompt = await this.preprarePromptsService.newsSummary.prepare({ news })
+    const summarizedNews = await this.aiApiRepository.inputPrompt(summaryPrompt)
     if (summarizedNews instanceof Error) return summarizedNews
 
-    const prioritizePrompt = await this.preprarePromptsService.prioritizeNews({ news: summarizedNews })
-    const prioritizedNews = await this.aiApiRepository.fetch(prioritizePrompt)
+    const prioritizePrompt = await this.preprarePromptsService.prioritizeNews.prepare({ news: summarizedNews })
+    const prioritizedNews = await this.aiApiRepository.inputPrompt(prioritizePrompt)
     if (prioritizedNews instanceof Error) return prioritizedNews
 
-    const newsletterPrompt = await this.preprarePromptsService.newsletter({ news: prioritizedNews, theme, greet, author })
-    const newsletter = await this.aiApiRepository.fetch(newsletterPrompt)
+    const newsletterPrompt = await this.preprarePromptsService.newsletter.prepare({
+      news: prioritizedNews,
+      ...params,
+    })
+    const newsletter = await this.aiApiRepository.inputPrompt(newsletterPrompt)
 
     return newsletter
   }

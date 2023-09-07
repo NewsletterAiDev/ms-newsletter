@@ -17,7 +17,7 @@ export class GenerateNewsletterValidatorFactory {
 
   public make(): ValidationComposite {
     const validations: ValidatorsInterface[] = []
-    for (const field of ['author', 'greet', 'theme']) {
+    for (const field of ['author', 'greet', 'theme', 'tone', 'businessType', 'title']) {
       validations.push(new RequireParamValidation(field))
     }
 

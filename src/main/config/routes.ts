@@ -6,6 +6,5 @@ export const routes: Routes[] = [
     path: '/generate',
     method: 'post',
     handler: generateNewsletterController,
-  }  
+  },
 ]
-

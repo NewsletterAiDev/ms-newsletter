@@ -1,12 +1,11 @@
 import { ErrorMap } from '../../../domain/entities'
-import { UnknownError } from '../../../presentation/errors'
 import { HandleErrorUsecase } from '../../../domain/usecases'
 
 export async function handleErrorService({ err }: HandleErrorUsecase.Params): Promise<HandleErrorUsecase.Response> {
-  const error = ErrorMap.get(err)
+  const error = ErrorMap.get(err.message)
 
   if (error) return error
 
-  console.error(err)
-  return new UnknownError()
+  console.log(err)
+  return error || err
 }

@@ -1,5 +1,1 @@
-import * as firebase from 'firebase-admin'
-
-firebase.initializeApp()
-
 export { newsletter } from './main'

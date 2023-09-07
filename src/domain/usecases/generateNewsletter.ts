@@ -10,6 +10,10 @@ export namespace GenerateNewsletterUsecase {
     greet: string
     theme: string
     days?: number
+    tone: string
+    businessType: string
+    title: string
+    bodyExample?: string
   }
 
   export type Response = Newsletter | Error

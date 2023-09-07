@@ -1,2 +1,5 @@
 export * from './handleErrorService'
-export * from './preparePromptsService'
+export * from './prompts/prepareNewsletterPromptService'
+export * from './prompts/prepareNewsSummaryPromptService'
+export * from './prompts/preparePrioritizeNewsPromptService'
+
