@@ -1,13 +1,13 @@
 export interface AuthContract {
-    verifyToken(params: AuthContract.VerifyToken.Params): Promise<AuthContract.VerifyToken.Response>
+  verifyToken(params: AuthContract.VerifyToken.Params): Promise<AuthContract.VerifyToken.Response>
 }
 
 export namespace AuthContract {
-    export namespace VerifyToken {
-        export type Params = {
-            accessToken: string
-        }
-
-        export type Response = boolean
+  export namespace VerifyToken {
+    export type Params = {
+      accessToken: string
     }
+
+    export type Response = boolean
+  }
 }

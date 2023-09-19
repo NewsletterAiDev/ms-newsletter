@@ -1,4 +1,3 @@
-import { variables } from './config'
 import { initializeApp } from './app'
 import * as controllers from '../presentation/controllers'
 
@@ -7,10 +6,11 @@ initializeApp()
 const event = controllers.generateNewsletterController
 
 const request: any = {
-  author: variables.mockAuthor,
-  greet: variables.mockGreet,
-  theme: variables.mockTheme,
-  days: +variables.mockDays,
+  userUid: '123',
+  author: 'Tiago Morelli',
+  greet: 'Faaala, minhas lendas! ☕️',
+  theme: 'Inteligencia Artificial',
+  days: 10,
   tone: 'casual',
   businessType: 'startup',
   title: 'Newsletter da Semana - Startup',

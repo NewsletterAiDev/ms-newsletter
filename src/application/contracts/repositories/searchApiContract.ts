@@ -1,23 +1,23 @@
 export interface SearchApiContract {
-    fetch(params: SearchApiContract.Fetch.Params): Promise<SearchApiContract.Fetch.Response>
+	fetch(params: SearchApiContract.Fetch.Params): Promise<SearchApiContract.Fetch.Response>
 }
 
 export namespace SearchApiContract {
-    export namespace Fetch {
-        export type Params = {
-            query: string
-            days: number
-        }
+	export namespace Fetch {
+		export type Params = {
+			query: string
+			days: number
+		}
 
-        export type Response = Array<any> | Error
-    }
+		export type Response = Array<any>
+	}
 
-    export type SearchParams = {
-        q: string,
-        cx: string,
-        key: string,
-        dateRestrict: string,
-        sort: string,
-        lr: string
-    }
+	export type SearchParams = {
+		q: string,
+		cx: string,
+		key: string,
+		dateRestrict: string,
+		sort: string,
+		lr: string
+	}
 }

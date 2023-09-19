@@ -1,4 +1,14 @@
 export interface AiApiContract {
-    initialize(): Promise<any>
-    inputPrompt(prompt: string): Promise<string | Error>
+    inputPrompt(params: AiApiContract.InputPrompt.Params): Promise<AiApiContract.InputPrompt.Response>
+}
+
+
+export namespace AiApiContract {
+    export namespace InputPrompt {
+        export type Params = {
+            prompt: string
+        }
+
+        export type Response = string
+    }
 }

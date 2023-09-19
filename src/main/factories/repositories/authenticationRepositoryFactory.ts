@@ -1,5 +1,5 @@
 import { AuthRepository } from '../../../infra/repositories'
-import { FirebaseHelperFactory } from './firebaseHelperFactory'
+import { FirebaseRepositoryFactory } from './firebaseRepositoryFactory'
 
 export class AuthenticationRepositoryFactory {
   private static instance: AuthenticationRepositoryFactory
@@ -14,7 +14,7 @@ export class AuthenticationRepositoryFactory {
 
   public make(): AuthRepository {
     return new AuthRepository(
-      FirebaseHelperFactory.getInstance().make()
+      FirebaseRepositoryFactory.getInstance().make()
     )
   }
 }

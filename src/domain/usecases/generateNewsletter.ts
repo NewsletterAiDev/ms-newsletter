@@ -6,6 +6,7 @@ export interface GenerateNewsletterUsecase {
 
 export namespace GenerateNewsletterUsecase {
   export type Params = {
+    userUid: string
     author: string
     greet: string
     theme: string
