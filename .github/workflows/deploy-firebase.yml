@@ -2,7 +2,7 @@ name: Build and Deploy to Firebase Functions
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
