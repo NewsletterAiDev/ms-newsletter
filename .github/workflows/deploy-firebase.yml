@@ -20,4 +20,4 @@ jobs:
         with:
           project_id: ${{ secrets.PROJECT_ID }}
       - name: Deploy to Firebase
-        run: gcloud functions deploy functions
+        run: gcloud functions deploy functions --trigger-http
