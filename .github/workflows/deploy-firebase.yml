@@ -11,8 +11,6 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
-    - name: Console Log
-      run: echo ${{ secrets.GCP_SA_KEY }}
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
