@@ -11,10 +11,11 @@ const request: any = {
   author: 'Tiago Morelli',
   greet: 'Faaala, minhas lendas! ☕️',
   theme: 'Inteligencia Artificial',
-  days: 10,
+  days: 90,
   tone: 'casual',
   businessType: 'startup',
   title: 'Newsletter da Semana - Startup',
+  websites: [],
 }
 
 event(request).then(console.log)

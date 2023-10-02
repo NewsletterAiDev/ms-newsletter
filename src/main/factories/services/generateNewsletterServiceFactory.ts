@@ -22,7 +22,7 @@ export class GenerateNewsletterServiceFactory {
     return new GenerateNewsletterService(
       AiApiRepositoryFactory.getInstance().make(),
       SearchApiRepositoryFactory.getInstance().make(),
-      NewsletterRepositoryFactory.getInstance().make(), 
+      NewsletterRepositoryFactory.getInstance().make(),
       CryptoAdapterFactory.getInstance().make(),
       PrepareNewsSummaryPromptTaskFactory.getInstance().make(),
       PrepareNewsletterPromptTaskFactory.getInstance().make(),

@@ -1,4 +1,4 @@
-import { Newsletter } from '@/domain/entities'
+import { Newsletter, Language } from '@/domain/entities'
 
 export interface GenerateNewsletterUsecase {
   perform(params: GenerateNewsletterUsecase.Params): Promise<GenerateNewsletterUsecase.Response>
@@ -10,11 +10,13 @@ export namespace GenerateNewsletterUsecase {
     author: string
     greet: string
     theme: string
-    days?: number
     tone: string
     businessType: string
     title: string
+    days?: number
     bodyExample?: string
+    websites: string[]
+    language?: Language
   }
 
   export type Response = Newsletter | Error

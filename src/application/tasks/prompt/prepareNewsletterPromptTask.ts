@@ -2,7 +2,7 @@ import { PrepareNewsletterPromptTreaty } from '@/application/tasks'
 
 export class PrepareNewsletterPromptTask implements PrepareNewsletterPromptTreaty {
   async prepare(params: PrepareNewsletterPromptTreaty.Params): Promise<PrepareNewsletterPromptTreaty.Response> {
-    const { news, theme, greet, author, title, tone, businessType, bodyExample } = params
+    const { news, theme, greet, author, title, tone, businessType, bodyExample, language } = params
 
     const bodyExampleText = `
       <h1>${title}</h1>
@@ -34,6 +34,7 @@ export class PrepareNewsletterPromptTask implements PrepareNewsletterPromptTreat
       8- A newsletter deve ser escrita em html para que seja usada em emails.
       9- A newsletter deve ser escrita em primeira pessoa, como se o ${author} estivesse escrevendo.
       10- A estrutura tem que seguir ambos as instuções e o exemplo abaixo.
+      11- A lingua da newsletter é ${language}.
       
       """"""
       A estrutura base que você deve seguir da newsletter é a seguinte: 

@@ -1,5 +1,6 @@
 export * from './User'
 export * from './News'
 export * from './ErrorMap'
+export * from './Language'
 export * from './Newsletter'
 export * from './Subscription'

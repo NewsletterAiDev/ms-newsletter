@@ -1,5 +1,5 @@
-import { SearchApiRepository } from '@/infra/repositories'
 import { variables } from '@/main/config'
+import { SearchApiRepository } from '@/infra/repositories'
 
 export class SearchApiRepositoryFactory {
   private static instance: SearchApiRepositoryFactory
@@ -14,8 +14,7 @@ export class SearchApiRepositoryFactory {
 
   public make(): SearchApiRepository {
     return new SearchApiRepository(
-      variables.googleSearchApiKey,
-      variables.googleSearchCx
+      variables.serpApiKey
     )
   }
 }

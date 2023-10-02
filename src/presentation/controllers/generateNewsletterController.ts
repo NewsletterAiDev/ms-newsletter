@@ -1,6 +1,6 @@
 import { GenerateNewsletterServiceFactory } from '@/main/factories/services'
 import { GenerateNewsletterValidatorFactory } from '@/main/factories/validators'
-import { Newsletter } from '@/domain/entities'
+import { Language, Newsletter } from '@/domain/entities'
 import { HttpResponse, badRequest, invalidParams, success } from '@/presentation/helpers'
 
 type Request = {
@@ -13,6 +13,8 @@ type Request = {
   businessType: string
   title: string
   bodyExample?: string
+  websites: string[]
+  language?: Language
 }
 
 export async function generateNewsletterController(request: Request): Promise<HttpResponse<Newsletter | Error>> {

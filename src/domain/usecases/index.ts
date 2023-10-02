@@ -1,2 +1,2 @@
-export * from './generateNewsletter'
+export * from './generateNewsletterUsecase'
 

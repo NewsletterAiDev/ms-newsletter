@@ -1,3 +1,5 @@
+import { Language } from '@/domain/entities'
+
 export interface PrepareNewsletterPromptTreaty {
   prepare(params: PrepareNewsletterPromptTreaty.Params): Promise<PrepareNewsletterPromptTreaty.Response>
 }
@@ -12,6 +14,7 @@ export namespace PrepareNewsletterPromptTreaty {
     tone: string
     businessType: string
     bodyExample?: string
+    language: Language
   }
 
   export type Response = string

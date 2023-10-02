@@ -1,1 +1,1 @@
-export * from './generateNewsletter'
+export * from './generateNewsletterService'

@@ -1,31 +1,31 @@
-import axios from 'axios'
 import { SearchApiContract } from '@/application/contracts/repositories'
+
+import { getJson, GoogleParameters } from 'serpapi'
 
 export class SearchApiRepository implements SearchApiContract {
   constructor(
-    private readonly apiKey: string,
-    private readonly searchCx: string
+    private readonly apiKey: string
   ) { }
 
   async fetch(params: SearchApiContract.Fetch.Params): Promise<SearchApiContract.Fetch.Response> {
-    const { query, days } = params
+    const { query, days, websites, language } = params
 
-    const today = new Date()
+    const limitedToWebsitesQuery = websites.map((website) => `site: ${website}`).join(' OR ') + query
 
-    const endDate = new Date().toLocaleDateString('en-GB')
-    const startDate = new Date(today.getTime() - days * 86400000).toLocaleDateString('en-GB')
-
-    const searchParams: SearchApiContract.SearchParams = {
-      q: query,
-      cx: this.searchCx,
-      key: this.apiKey,
-      dateRestrict: `${endDate},${startDate}`,
-      sort: 'date',
-      lr: 'lang_pt',
+    const searchParams: GoogleParameters = {
+      q: limitedToWebsitesQuery,
+      hl: language,
+      api_key: this.apiKey,
+      as_q: `d${days}`,
     }
 
-    const response = await axios.get('https://www.googleapis.com/customsearch/v1', { params: searchParams })
+    const response = await getJson('google', searchParams)
+    console.log(response.organic_results)
 
-    return response.data.items
+    return response.organic_results.map((result: any) => ({
+      title: result.title,
+      link: result.link,
+      snippet: result.snippet,
+    }))
   }
 }
