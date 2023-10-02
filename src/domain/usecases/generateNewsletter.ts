@@ -1,4 +1,4 @@
-import { Newsletter } from '../entities'
+import { Newsletter } from '@/domain/entities'
 
 export interface GenerateNewsletterUsecase {
   perform(params: GenerateNewsletterUsecase.Params): Promise<GenerateNewsletterUsecase.Response>

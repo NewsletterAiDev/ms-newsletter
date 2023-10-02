@@ -1,10 +1,11 @@
 import {
-  PrepareNewsSummaryPromptServiceFactory,
-  PrepareNewsletterPromptServiceFactory,
-  PreparePrioritizeNewsPromptServiceFactory,
-} from './tasks'
-import { GenerateNewsletterService } from '../../../application/services'
-import { AiApiRepositoryFactory, HashRepositoryFactory, NewsletterRepositoryFactory, SearchApiRepositoryFactory } from '../repositories'
+  PrepareNewsSummaryPromptTaskFactory,
+  PrepareNewsletterPromptTaskFactory,
+  PreparePrioritizeNewsPromptTaskFactory,
+} from '@/main/factories/tasks'
+import { CryptoAdapterFactory } from '@/main/factories/adapters'
+import { GenerateNewsletterService } from '@/application/services'
+import { AiApiRepositoryFactory, NewsletterRepositoryFactory, SearchApiRepositoryFactory } from '@/main/factories/repositories'
 
 export class GenerateNewsletterServiceFactory {
   private static instance: GenerateNewsletterServiceFactory
@@ -22,10 +23,10 @@ export class GenerateNewsletterServiceFactory {
       AiApiRepositoryFactory.getInstance().make(),
       SearchApiRepositoryFactory.getInstance().make(),
       NewsletterRepositoryFactory.getInstance().make(), 
-      HashRepositoryFactory.getInstance().make(),
-      PrepareNewsSummaryPromptServiceFactory.getInstance().make(),
-      PrepareNewsletterPromptServiceFactory.getInstance().make(),
-      PreparePrioritizeNewsPromptServiceFactory.getInstance().make(),
+      CryptoAdapterFactory.getInstance().make(),
+      PrepareNewsSummaryPromptTaskFactory.getInstance().make(),
+      PrepareNewsletterPromptTaskFactory.getInstance().make(),
+      PreparePrioritizeNewsPromptTaskFactory.getInstance().make(),
     )
   }
 }

@@ -1,4 +1,4 @@
-import { AiApiContract } from '../../application/contracts'
+import { AiApiContract } from '@/application/contracts/repositories'
 
 import { ChatCompletionResponseMessage, Configuration, OpenAIApi } from 'openai'
 

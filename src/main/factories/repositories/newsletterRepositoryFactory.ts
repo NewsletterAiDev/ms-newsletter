@@ -1,4 +1,4 @@
-import { NewsletterRepository } from '../../../infra/repositories'
+import { NewsletterRepository } from '@/infra/repositories'
 import { FirebaseRepositoryFactory } from './firebaseRepositoryFactory'
 
 export class NewsletterRepositoryFactory {

@@ -1,5 +1,5 @@
-import { SearchApiRepository } from '../../../infra/repositories'
-import { variables } from '../../config'
+import { SearchApiRepository } from '@/infra/repositories'
+import { variables } from '@/main/config'
 
 export class SearchApiRepositoryFactory {
   private static instance: SearchApiRepositoryFactory

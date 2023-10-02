@@ -1,9 +1,7 @@
-import { Newsletter } from '../../domain/entities'
-import {
-  GenerateNewsletterValidatorFactory,
-  GenerateNewsletterServiceFactory,
-} from '../../main/factories'
-import { HttpResponse, badRequest, invalidParams, success } from '../helpers'
+import { GenerateNewsletterServiceFactory } from '@/main/factories/services'
+import { GenerateNewsletterValidatorFactory } from '@/main/factories/validators'
+import { Newsletter } from '@/domain/entities'
+import { HttpResponse, badRequest, invalidParams, success } from '@/presentation/helpers'
 
 type Request = {
   author: string

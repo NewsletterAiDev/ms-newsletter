@@ -7,6 +7,7 @@ export const variables = {
   aiPresencePenalty: process.env.AI_PRESENCE_PENALTY ?? 'undefined',
   aiTemperature: process.env.AI_TEMPERATURE ?? 'undefined',
   aiModel: process.env.AI_MODEL ?? 'undefined',
+  jwtSecret: process.env.JWT_SECRET ?? 'undefined'
 }
 
 export const testVariables = (): boolean => {

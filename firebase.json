@@ -6,7 +6,7 @@
   "functions": [
     {
       "source": ".",
-      "codebase": "ms-newsletter",
+      "codebase": "newsletter",
       "ignore": [
         "node_modules",
         ".git",

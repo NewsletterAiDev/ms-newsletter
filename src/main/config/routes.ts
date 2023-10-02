@@ -1,5 +1,5 @@
-import { Routes } from '../../presentation/helpers'
-import { generateNewsletterController } from '../../presentation/controllers'
+import { Routes } from '@/presentation/helpers'
+import { generateNewsletterController } from '@/presentation/controllers'
 
 export const routes: Routes[] = [
   {

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { SearchApiContract } from '../../application/contracts'
+import { SearchApiContract } from '@/application/contracts/repositories'
 
 export class SearchApiRepository implements SearchApiContract {
   constructor(

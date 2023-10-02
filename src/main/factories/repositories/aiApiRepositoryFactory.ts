@@ -1,5 +1,5 @@
-import { AiApiRepository } from '../../../infra/repositories'
-import { variables } from '../../config'
+import { AiApiRepository } from '@/infra/repositories'
+import { variables } from '@/main/config'
 
 export class AiApiRepositoryFactory {
   private static instance: AiApiRepositoryFactory

@@ -1,6 +1,6 @@
 import { firestore } from 'firebase-admin'
-import { NewsletterRepositoryContract } from '../../application/contracts'
-import { Newsletter } from '../../domain/entities'
+import { NewsletterRepositoryContract } from '@/application/contracts/repositories'
+import { Newsletter } from '@/domain/entities'
 
 export class NewsletterRepository implements NewsletterRepositoryContract {
   constructor(
