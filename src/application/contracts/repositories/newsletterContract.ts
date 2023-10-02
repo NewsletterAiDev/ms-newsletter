@@ -2,9 +2,11 @@ import { Newsletter } from '@/domain/entities'
 
 export interface NewsletterRepositoryContract {
   saveNewsletter(params: NewsletterRepositoryContract.SaveNewsletter.Params): Promise<NewsletterRepositoryContract.SaveNewsletter.Response>
+  listNewsletterByUserUid(params: NewsletterRepositoryContract.ListNewsletterByUserUid.Params): Promise<NewsletterRepositoryContract.ListNewsletterByUserUid.Response>
 }
 
 export namespace NewsletterRepositoryContract {
+
   export namespace SaveNewsletter {
     export type Params = {
       uid: string
@@ -19,5 +21,13 @@ export namespace NewsletterRepositoryContract {
     }
 
     export type Response = Newsletter
+  }
+
+  export namespace ListNewsletterByUserUid {
+    export type Params = {
+      userUid: string
+    }
+
+    export type Response = Newsletter[] | undefined
   }
 }
