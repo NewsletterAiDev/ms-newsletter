@@ -10,8 +10,9 @@ export class VerifyAccessTokenTask implements VerifyAccessTokenTreaty {
 
   async perform({ accessToken }: VerifyAccessTokenTreaty.Params): Promise<VerifyAccessTokenTreaty.Response> {
     let decryptToken = await this.jwtAdapter.verify(accessToken)
+    if (!decryptToken) return new InvalidParamError('accessToken')
 
     decryptToken = (typeof decryptToken === 'string') ? JSON.parse(decryptToken) : decryptToken
-    return decryptToken as User || new InvalidParamError('accessToken')
+    return decryptToken as User
   }
 }
