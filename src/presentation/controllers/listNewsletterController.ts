@@ -2,8 +2,8 @@ import { ListNewsletterServiceFactory } from '@/main/factories/services'
 import { ListNewsletterValidatorFactory } from '@/main/factories/validators'
 import { VerifyAccessTokenTaskFactory } from '@/main/factories/tasks'
 import { Newsletter } from '@/domain/entities'
-import { HttpResponse, badRequest, invalidParams, success, unathorized } from '@/presentation/helpers'
 import { InvalidParamError } from '@/domain/errors'
+import { HttpResponse, badRequest, invalidParams, success, unathorized } from '@/presentation/helpers'
 
 type Request = {
   accessToken: string

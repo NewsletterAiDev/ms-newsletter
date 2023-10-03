@@ -1,3 +1,5 @@
+import { Language } from "@/domain/entities"
+
 export type Newsletter = {
   userUid: string
   uid: string
@@ -8,5 +10,7 @@ export type Newsletter = {
   author: string
   greet: string
   title: string
+  websites: string[]
+  language: Language
   createdAt: Date
 }
