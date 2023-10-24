@@ -1,4 +1,4 @@
-import { Newsletter } from '@/domain/entities'
+import { Language, Newsletter } from '@/domain/entities'
 
 export interface NewsletterRepositoryContract {
   saveNewsletter(params: NewsletterRepositoryContract.SaveNewsletter.Params): Promise<NewsletterRepositoryContract.SaveNewsletter.Response>
@@ -12,12 +12,16 @@ export namespace NewsletterRepositoryContract {
       uid: string
       userUid: string
       text: string
+      author: string
+      greet: string
       theme: string
       tone: string
       businessType: string
-      author: string
-      greet: string
       title: string
+      days?: number
+      bodyExample?: string
+      websites: string[]
+      language: Language
     }
 
     export type Response = Newsletter

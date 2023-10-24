@@ -1,6 +1,6 @@
 import { MethodNotAllowedError, UnknownError } from '@/presentation/errors'
 
-export type HttpMethods = 'post' | 'get' | 'put' | 'delete'
+export type HttpMethods = 'POST' | 'GET' | 'PUT' | 'DELETE'
 
 export type HttpResponse<T = any> = {
   statusCode: number

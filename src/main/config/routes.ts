@@ -4,12 +4,12 @@ import * as controllers from '@/presentation/controllers'
 export const routes: Routes[] = [
   {
     path: '/generate',
-    method: 'post',
+    method: 'POST',
     handler: controllers.generateNewsletterController,
   },
   {
     path: '/list',
-    method: 'get',
+    method: 'GET',
     handler: controllers.listNewsletterController,
   },
 

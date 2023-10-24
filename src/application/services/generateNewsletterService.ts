@@ -46,6 +46,7 @@ export class GenerateNewsletterService implements GenerateNewsletterUsecase {
     const newsletter = await this.newsletterRepository.saveNewsletter({
       uid: newsletterUid,
       text: newsletterText,
+      language,
       ...params,
     })
 
