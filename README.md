@@ -1,5 +1,9 @@
 # Newsletter AI Microservice
 
+## **Application Overview**
+
+This application is the backend for an application that generates newsletter automatically based on the users data and business.
+
 ## **Architecture Overview**
 
 Our system is based on three important concepts: **Clean Architecture**, **Domain-Driven Design** (DDD), and **Object-Oriented Programming** (OOP). These concepts help us create an organized, flexible, and easy-to-maintain system.
