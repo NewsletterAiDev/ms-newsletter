@@ -2,7 +2,7 @@
 
 ## **Application Overview**
 
-This application is the backend for an application that generates newsletter automatically based on the users data and business using AI.
+This is the core backend for the Newsletter AI, an application that generates newsletters automatically based on the users data and business using AI.
 
 ## **Architecture Overview**
 
