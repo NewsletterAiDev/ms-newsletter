@@ -2,7 +2,8 @@
 
 ## **Application Overview**
 
-This is the core backend for the Newsletter AI, an application that generates newsletters automatically based on the users data and business using AI.
+Newsletter AI is an application that automatically generates newsletters using artificial intelligence to personalize the content based on user data and business information. The platform analyzes customer preferences, behaviors, and interests, creating relevant and targeted newsletters that help increase engagement and retention. With Newsletter AI, companies can optimize their marketing campaigns, save time, and offer more personalized and effective content to their customers.
+
 
 ## **Architecture Overview**
 
